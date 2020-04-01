@@ -4,7 +4,7 @@
     <span class="addContainer" v-on:click="addTodo">
       <i class="fas fa-plus addBtn"></i>
     </span>
-    <modal v-if="showModal" @close="showModal = false">
+    <Modal v-if="showModal" @close="showModal = false">
     <!--
       you can use custom content here to overwrite
       default content
@@ -14,34 +14,36 @@
       <i class="closeModalBtn fas fa-times" @click="showModal = false"></i>
     </h3>
     <div slot="body">아무것도 입력하지 않았습니다.</div>
-  </modal>
+  </Modal>
   </div>
 </template>
 
 <script>
 import Modal from './common/Modal.vue'
 export default {
-  data: function(){
+  data(){
     return {
       newTodoItem: "",
       showModal: false
     }
   },
   methods: {
-    addTodo: function(){
+    addTodo(){
       if(this.newTodoItem !== ''){
-        this.$emit('addTodoItem',this.newTodoItem);
+        //this.$emit('addTodoItem',this.newTodoItem);
+        const text = this.newTodoItem.trim();
+        this.$store.commit('addOneItem', text);
          this.clearInput();
       }else{
         this.showModal = !this.showModal;
       }
     },
-    clearInput: function(){
+    clearInput(){
       this.newTodoItem = '';
     },
   },
   components: {
-      modal: Modal
+      Modal
     }
 }
 </script>
