@@ -20,8 +20,8 @@ function fetchJobs() {
   return axios.get(api.jobs);
 }
 
-function fetchUser(id) {
-  const url = `${api.user}${id}.json`;
+function fetchUser(username) {
+  const url = `${api.user}${username}.json`;
   return axios.get(url);
 }
 
