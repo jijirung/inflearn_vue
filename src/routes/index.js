@@ -5,10 +5,7 @@ import AskView from '../views/AskView.vue';
 import JobView from '../views/JobsView.vue';
 import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
-<<<<<<< HEAD
 import axios from 'axios'
-=======
->>>>>>> 1093cd1587c84710c3b3004564fd29801befe4fe
 
 Vue.use(VueRouter);
 export const router = new VueRouter({
